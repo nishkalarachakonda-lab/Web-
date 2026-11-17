@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachakonda Nishkala Siri - Resume &amp; Portfolio</title>
+    <!-- Google Fonts: Press Start 2P for retro arcade headings & Plus Jakarta Sans for clean body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================================================== */
+        /* RETRO ARCADE TECH THEME - EMBEDDED STYLESHEET                              */
+        /* ========================================================================== */
+
+        :root {
+            --bg-primary: #0F172A;
+            --bg-surface: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #22D3EE;
+            --accent-hover: #06B6D4;
+            --border-color: #38BDF8;
+            --emerald: #10B981;
+            --font-heading: 'Press Start 2P', monospace;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--accent);
+            margin-top: 0;
+        }
+
+        p {
+            max-width: 72ch;
+            color: var(--text-main);
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Sticky Navigation Header */
+        #nav-header {
+            background-color: var(--bg-surface);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 14px 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-size: 0.62rem;
+            color: var(--text-main);
+            padding: 8px 10px;
+            border: 1px dashed transparent;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background-color: rgba(34, 211, 238, 0.08);
+        }
+
+        /* Main Layout Wrapper */
+        .main-container {
+            max-width: 1050px;
+            margin: 36px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        /* Hero Section (Clean Typography, No Avatar Image) */
+        #hero {
+            text-align: center;
+            padding: 56px 28px;
+            background-color: var(--bg-surface);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.12);
+        }
+
+        .hero-badge {
+            font-family: var(--font-heading);
+            font-size: 0.6rem;
+            color: var(--border-color);
+            letter-spacing: 0.1em;
+            margin-bottom: 18px;
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px dashed var(--border-color);
+            border-radius: 4px;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            line-height: 1.45;
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin: 0 auto 32px auto;
+            font-weight: 500;
+        }
+
+        .hero-ctas, .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* Retro Arcade Buttons */
+        .btn {
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
+            padding: 14px 18px;
+            border: 2px solid var(--accent);
+            background-color: transparent;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            border-radius: 6px;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .btn:hover, .btn:focus-visible {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            outline: 2px solid var(--text-main);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            border-color: var(--border-color);
+            color: var(--border-color);
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus-visible {
+            background-color: var(--border-color);
+            color: var(--bg-primary);
+        }
+
+        .btn-print {
+            border-color: var(--emerald);
+            background-color: var(--emerald);
+            color: #FFFFFF;
+        }
+
+        .btn-print:hover, .btn-print:focus-visible {
+            background-color: #059669;
+            border-color: #059669;
+            color: #FFFFFF;
+        }
+
+        /* Terminal Cards */
+        .card {
+            background-color: var(--bg-surface);
+            border: 2px solid var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .card-header h2 {
+            font-size: 0.85rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 14px;
+            margin-bottom: 22px;
+            line-height: 1.5;
+        }
+
+        .card-body ul {
+            margin: 10px 0 0 20px;
+            padding: 0;
+        }
+
+        .card-body li {
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .experience-item, .project-item, .edu-item {
+            margin-bottom: 26px;
+        }
+
+        .experience-item:last-child, .project-item:last-child, .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item h3, .project-item h3, .edu-item h3 {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .edu-item p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .item-meta {
+            font-family: var(--font-heading);
+            font-size: 0.58rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .skills-text {
+            margin-bottom: 12px;
+        }
+
+        .skills-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-cyan {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Printable Paper Resume Section */
+        #resume {
+            background-color: var(--bg-surface);
+            border: 2px dashed var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .resume-download-bar {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .paper-resume {
+            background-color: #FFFFFF;
+            color: #1A1D20;
+            padding: 40px;
+            max-width: 820px;
+            margin: 0 auto;
+            border-radius: 6px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .paper-header {
+            border-bottom: 2px solid #1A1D20;
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        .paper-header h2 {
+            font-family: var(--font-body);
+            color: #1A1D20;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        .paper-header p, .paper-section p, .paper-entry p {
+            font-size: 0.88rem;
+            color: #1A1D20;
+            margin: 4px 0;
+            max-width: none;
+        }
+
+        .paper-section {
+            margin-bottom: 16px;
+        }
+
+        .paper-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .paper-section h3 {
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #1A1D20;
+            border-bottom: 1px solid #9CA3AF;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            letter-spacing: 0.04em;
+        }
+
+        .paper-entry {
+            margin-bottom: 10px;
+        }
+
+        .paper-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .paper-entry h4 {
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #1A1D20;
+            margin: 0 0 2px 0;
+        }
+
+        /* Retro Tagline Quote Banner (Placed directly before Contact) */
+        #tagline {
+            background-color: var(--bg-primary);
+            border: 2px dashed var(--accent);
+            border-radius: 8px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 0 22px rgba(34, 211, 238, 0.14);
+        }
+
+        .tagline-status {
+            font-family: var(--font-heading);
+            font-size: 0.6rem;
+            color: var(--border-color);
+            margin-bottom: 14px;
+            letter-spacing: 0.08em;
+        }
+
+        .tagline-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-main);
+            max-width: 65ch;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Contact Section with Plain-Text Direct Credentials */
+        .contact-body {
+            text-align: center;
+        }
+
+        .contact-intro {
+            color: var(--text-muted);
+            margin: 0 auto 24px auto;
+        }
+
+        .direct-contact-box {
+            margin-top: 28px;
+            padding: 20px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-align: left;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .direct-contact-title {
+            font-family: var(--font-heading);
+            font-size: 0.62rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .contact-detail-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(56, 189, 248, 0.25);
+            font-size: 0.92rem;
+        }
+
+        .contact-detail-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .contact-value {
+            color: var(--text-main);
+            font-family: monospace;
+            font-size: 0.95rem;
+            word-break: break-all;
+            user-select: all;
+        }
+
+        /* Footer */
+        #footer {
+            text-align: center;
+            padding: 28px 20px;
+            background-color: var(--bg-surface);
+            border-top: 2px solid var(--border-color);
+            margin-top: 48px;
+        }
+
+        .footer-title {
+            font-family: var(--font-heading);
+            font-size: 0.65rem;
+            color: var(--accent);
+            margin: 0 auto 10px auto;
+            line-height: 1.5;
+        }
+
+        .footer-emails {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0 auto;
+            word-break: break-word;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 720px) {
+            .navbar {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            #hero {
+                padding: 40px 20px;
+            }
+
+            .hero-title {
+                font-size: 1.12rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .main-container {
+                margin: 24px auto;
+                padding: 0 16px;
+                gap: 24px;
+            }
+
+            .card, #resume {
+                padding: 20px;
+            }
+
+            .paper-resume {
+                padding: 22px;
+            }
+        }
+
+        /* Print Stylesheet for Clean PDF Resume Output */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #resume, #resume * {
+                visibility: visible;
+            }
+
+            #resume {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: none;
+                background: #FFFFFF;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resume-download-bar {
+                display: none !important;
+            }
+
+            .paper-resume {
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+                box-shadow: none;
+                color: #000000;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header id="nav-header">
+        <nav class="navbar">
+            <a href="#hero" class="nav-brand">NISHKALA.R</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">ABOUT</a></li>
+                <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
+                <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                <li><a href="#education" class="nav-link">EDUCATION</a></li>
+                <li><a href="#achievements" class="nav-link">ACHIEVEMENTS</a></li>
+                <li><a href="#resume" class="nav-link">RESUME</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container Wrapper -->
+    <main class="main-container">
+
+        <!-- Hero Section (No Avatar Image) -->
+        <section id="hero">
+            <div class="hero-badge">[ PLAYER 01 // IIM BANGALORE BBA (DBE) ]</div>
+            <h1 class="hero-title">Rachakonda Nishkala Siri</h1>
+            <p class="hero-subtitle">IIM Bangalore BBA student | Event Host | Aspiring Marketer &amp; Web Creator</p>
+            <div class="hero-ctas">
+                <a href="mailto:nishkalarachakonda@gmail.com?subject=Marketing%20Internship%20Opportunity" class="btn">&gt;&gt; EMAIL (PERSONAL)</a>
+                <a href="mailto:nishkala.rachakonda26@iimb.ac.in?subject=Collaboration%20Inquiry" class="btn">&gt;&gt; EMAIL (COLLEGE)</a>
+                <a href="https://www.linkedin.com/in/nishkala-siri-rachakonda-143835442" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">&gt;&gt; LINKEDIN</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="card">
+            <div class="card-header">
+                <h2>[:: ABOUT ME ::]</h2>
+            </div>
+            <div class="card-body">
+                <p>I am a first-year BBA (Digital Business &amp; Entrepreneurship) student at the Indian Institute of Management Bangalore (IIMB). Driven by a strong sense of initiative, leadership, and a passion for marketing, I thrive at the intersection of business, creative pitching, and technology. Whether I am anchoring major events for hundreds of attendees, debating complex global policies, or building web projects, I bring energy, structured thinking, and a bias for action to everything I do.</p>
+            </div>
+        </section>
+
+        <!-- Experience & Leadership Section -->
+        <section id="experience" class="card">
+            <div class="card-header">
+                <h2>[:: EXPERIENCE &amp; LEADERSHIP ::]</h2>
+            </div>
+            <div class="card-body">
+                <div class="experience-item">
+                    <h3>Lead Event Host &amp; Speaker — Sri Venkateshwara Bala Kuteer</h3>
+                    <span class="item-meta">2024</span>
+                    <ul>
+                        <li>Led stage coordination and audience engagement for major school events with 400+ attendees, taking complete ownership of live crowd management and event flow.</li>
+                        <li>Delivered speeches and pitched ideas under pressure, sharpening public speaking, verbal communication, and real-time adaptability.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Delegate — Indian International Model United Nations (IIMUN) Debates</h3>
+                    <span class="item-meta">2025</span>
+                    <ul>
+                        <li>Represented national interests in structured committee debates focusing on international policy and narcotics/global security affairs, drafting resolutions and negotiating agreements.</li>
+                        <li>Demonstrated leadership through persuasive public speaking, diplomatic collaboration, and rigorous research on complex global issues.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="card">
+            <div class="card-header">
+                <h2>[:: PROJECTS ::]</h2>
+            </div>
+            <div class="card-body">
+                <div class="project-item">
+                    <h3>AI-Based Sign Language Detection (Class XII Project)</h3>
+                    <span class="item-meta">2026</span>
+                    <ul>
+                        <li>Collaborated within a team to customize and build upon a provided codebase for real-time gesture recognition.</li>
+                        <li>Explored practical technology-based applications for sign-language interpretation, bridging technical tools with real-world accessibility.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <h3>This Personal Resume Website</h3>
+                    <span class="item-meta">2026</span>
+                    <ul>
+                        <li>Designed and built a custom retro-tech arcade portfolio site from scratch for a college CSS assignment.</li>
+                        <li>Applied advanced CSS selectors, flexbox layouts, custom variables, and responsive media rules with a dedicated print stylesheet.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="card">
+            <div class="card-header">
+                <h2>[:: EDUCATION ::]</h2>
+            </div>
+            <div class="card-body">
+                <div class="edu-item">
+                    <h3>Indian Institute of Management Bangalore (IIMB)</h3>
+                    <p>BBA in Digital Business &amp; Entrepreneurship (DBE) | Pursuing (Batch of 2029)</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Next Gen International School, Guntur</h3>
+                    <p>Class XII | Completed 2026 — 67%</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Sri Venkateshwara Bala Kuteer, Guntur</h3>
+                    <p>Class X | Completed 2024 — 74%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors & Distinctions Section -->
+        <section id="achievements" class="card">
+            <div class="card-header">
+                <h2>[:: HONORS &amp; DISTINCTIONS ::]</h2>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Scored <span class="highlight-cyan">97/100 in Artificial Intelligence (AI)</span> in Class XII board exams.</li>
+                    <li>Demonstrated strong academic and linguistic proficiency with <span class="highlight-cyan">96/100 in Class XII English</span> and <span class="highlight-cyan">94/100 in Class X English</span>.</li>
+                    <li>Secured <span class="highlight-cyan">1st position in the Essay Writing Competition</span> on Vande Bharat Express, winning a special tour.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills & Interests Section -->
+        <section id="skills" class="card">
+            <div class="card-header">
+                <h2>[:: SKILLS &amp; INTERESTS ::]</h2>
+            </div>
+            <div class="card-body">
+                <p class="skills-text"><strong>Skills:</strong> Strategic Marketing, Public Speaking &amp; Pitching, Event Coordination &amp; Crowd Management, Team Leadership &amp; Collaboration, Essay Writing, AI-assisted Code Customization.</p>
+                <p class="skills-text"><strong>Interests:</strong> Playing Badminton, Debating Global Affairs, Exploring Tech Solutions, Creative Writing.</p>
+            </div>
+        </section>
+
+        <!-- Printable Paper Resume Section -->
+        <section id="resume">
+            <div class="resume-download-bar">
+                <button type="button" onclick="window.print()" class="btn btn-print">&gt;&gt; PRINT / SAVE RESUME AS PDF</button>
+            </div>
+            <div class="paper-resume">
+                <header class="paper-header">
+                    <h2>RACHAKONDA NISHKALA SIRI</h2>
+                    <p>BBA (Digital Business &amp; Entrepreneurship), IIM Bangalore (Batch of 2029)</p>
+                    <p>Personal Email: nishkalarachakonda@gmail.com | College Email: nishkala.rachakonda26@iimb.ac.in</p>
+                    <p>LinkedIn: linkedin.com/in/nishkala-siri-rachakonda-143835442</p>
+                </header>
+
+                <div class="paper-section">
+                    <h3>PROFILE</h3>
+                    <p>IIM Bangalore BBA student and experienced event host passionate about marketing, pitching ideas, and bringing creative projects to life with strong leadership and communication skills.</p>
+                </div>
+
+                <div class="paper-section">
+                    <h3>EXPERIENCE &amp; LEADERSHIP</h3>
+                    <div class="paper-entry">
+                        <h4>Lead Event Host &amp; Speaker — Sri Venkateshwara Bala Kuteer (2024)</h4>
+                        <p>Managed stage coordination and audience engagement for major school events with 400+ attendees. Delivered speeches and pitched ideas under pressure.</p>
+                    </div>
+                    <div class="paper-entry">
+                        <h4>Delegate — Indian International Model United Nations (IIMUN) Debates (2025)</h4>
+                        <p>Represented national interests in structured committee debates focusing on international policy and global security affairs, drafting resolutions and negotiating agreements through persuasive public speaking.</p>
+                    </div>
+                </div>
+
+                <div class="paper-section">
+                    <h3>PROJECTS</h3>
+                    <div class="paper-entry">
+                        <h4>AI-Based Sign Language Detection (Class XII Project, 2026)</h4>
+                        <p>Collaborated within a team to customize and build upon a provided codebase for real-time gesture recognition and accessibility applications.</p>
+                    </div>
+                    <div class="paper-entry">
+                        <h4>Personal Resume Website (2026)</h4>
+                        <p>Built a fully responsive retro arcade tech portfolio site implementing CSS selectors, flexbox, custom variables, and print stylesheet architecture.</p>
+                    </div>
+                </div>
+
+                <div class="paper-section">
+                    <h3>EDUCATION</h3>
+                    <p><strong>Indian Institute of Management Bangalore (IIMB):</strong> BBA (DBE), Pursuing (Batch of 2029)</p>
+                    <p><strong>Next Gen International School, Guntur:</strong> Class XII, 2026 (67%, AI: 97/100, English: 96/100)</p>
+                    <p><strong>Sri Venkateshwara Bala Kuteer, Guntur:</strong> Class X, 2024 (74%, English: 94/100)</p>
+                </div>
+
+                <div class="paper-section">
+                    <h3>ACADEMIC DISTINCTIONS</h3>
+                    <p>Secured 1st position in Essay Writing Competition on Vande Bharat Express, winning a special tour.</p>
+                </div>
+
+                <div class="paper-section">
+                    <h3>SKILLS &amp; INTERESTS</h3>
+                    <p>Strategic Marketing, Public Speaking &amp; Pitching, Event Coordination, Team Leadership, Essay Writing, AI-assisted Code Customization, Badminton.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tagline Quote Section (Placed right before Contact) -->
+        <section id="tagline" aria-label="Personal Tagline">
+            <div class="tagline-status">&lt; SYSTEM STATUS: EDITION 01 // PREVIEW MODE &gt;</div>
+            <blockquote class="tagline-quote">
+                &ldquo;There is no final version of me, only new editions. Consider this one a limited preview.&rdquo;
+            </blockquote>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="card">
+            <div class="card-header">
+                <h2>[:: GET IN TOUCH ::]</h2>
+            </div>
+            <div class="card-body contact-body">
+                <p class="contact-intro">Have an internship opportunity, project collaboration, or want to connect? Reach out via button or copy my direct details below:</p>
+                <div class="contact-buttons">
+                    <a href="mailto:nishkalarachakonda@gmail.com?subject=Marketing%20Internship%20Opportunity" class="btn">&gt;&gt; EMAIL (PERSONAL)</a>
+                    <a href="mailto:nishkala.rachakonda26@iimb.ac.in?subject=Collaboration%20Inquiry" class="btn">&gt;&gt; EMAIL (COLLEGE)</a>
+                    <a href="https://www.linkedin.com/in/nishkala-siri-rachakonda-143835442" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">&gt;&gt; LINKEDIN</a>
+                </div>
+
+                <!-- Plain-Text Direct Credentials so visitors can read/copy even if mailto links do not open -->
+                <div class="direct-contact-box">
+                    <span class="direct-contact-title">[:: DIRECT CONTACT CREDENTIALS ::]</span>
+                    <div class="contact-detail-row">
+                        <span class="contact-label">Personal Email:</span>
+                        <span class="contact-value">nishkalarachakonda@gmail.com</span>
+                    </div>
+                    <div class="contact-detail-row">
+                        <span class="contact-label">College Email (IIMB):</span>
+                        <span class="contact-value">nishkala.rachakonda26@iimb.ac.in</span>
+                    </div>
+                    <div class="contact-detail-row">
+                        <span class="contact-label">LinkedIn Profile:</span>
+                        <span class="contact-value">linkedin.com/in/nishkala-siri-rachakonda-143835442</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p class="footer-title">:: R. NISHKALA SIRI — IIM BANGALORE BBA DBE (2029) ::</p>
+        <p class="footer-emails">nishkalarachakonda@gmail.com &nbsp;|&nbsp; nishkala.rachakonda26@iimb.ac.in</p>
+    </footer>
+
+</body>
+</html>
